@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap");
+html,
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 150px;
+  background-repeat: repeat;
+  background-image: linear-gradient(#ecfdfdd8, #f3ffffc5, #f3ffffbe),
+    url("../media/background.jpg");
+}
+
+#sidebar {
+  position: fixed;
+  font-family: "Roboto", sans-serif;
+  width: 35vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: #203647;
+  align-items: center;
+  border-right: 3px;
+  border-right-color: #4da8da;
+  border-right-style: solid;
+  overflow-x: hidden;
+  transition: 1s;
+}
+
+#sidebar a {
+  display: block;
+  padding: 10px 20px;
+  color: rgb(211, 211, 211);
+  text-decoration: none;
+  font-family: "Audiowide", cursive;
+
+  letter-spacing: 2px;
+}
+#sidebar h1 {
+  display: block;
+  padding: 10px 20px;
+  color: rgb(212, 212, 212);
+  text-decoration: none;
+  font-family: "Audiowide", cursive;
+
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin: 0;
+  margin-top: 5vh;
+  margin-left: 4.3vh;
+  text-transform: uppercase;
+}
+
+#sidebar a:hover {
+  color: rgb(255, 255, 255);
+  margin-left: 20px;
+  transition: all 0.4s;
+}
+
+#sidebar-profile {
+  display: flex;
+  width: 150px;
+  height: 160px;
+  right: 50%;
+  align-items: center;
+  margin: 0 auto;
+  box-shadow: 1px 1px 40px rgb(193, 193, 255);
+}
+#sidebar-profile-back {
+  width: 170px;
+  height: 170px;
+  position: absolute;
+  filter: blur(2px);
+  z-index: -1;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.pp-container {
+  width: 170px;
+  height: 190px;
+  margin: 0 auto;
+  margin-top: 5vh;
+  align-items: center;
+}
+
+#open-close {
+  cursor: pointer;
+  background-color: #203647;
+  width: 35px;
+  position: fixed;
+  left: 0;
+  transition: ease 0.5s;
+}
+#open-close:hover {
+  transform: rotate(-90deg);
+}
+
+#main {
+  scroll-behavior: smooth;
+  background: #f1f1f1e0;
+  position: absolute;
+  left: 25%;
+  width: 70%;
+  height: 100%;
+  text-align: center;
+  border-left: 2px solid rgb(32, 32, 32);
+  border-right: 2px solid rgb(24, 24, 24);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: 1s ease;
+}
+
+.grid-container {
+  width: 100%;
+  height: 70%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 45% 45% 0%;
+  padding: 0;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.grid-item {
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.Article {
+  position: relative;
+  background-size: cover;
+  text-align: center;
+  opacity: 0.9;
+  transition: 0.3s all;
+  border-radius: 2px;
+}
+.Article:hover {
+  opacity: 1;
+}
+.summary-text {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(104, 104, 104, 0.1);
+  border: 1.5px dotted white;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 40px;
+  color: white;
+  font-family: "Nanum Gothic Coding", monospace;
+  letter-spacing: 2px;
+}
+.titleofart {
+  background-color: #203647;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: "Nanum Gothic Coding", monospace;
+}
+.titleofart a{
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: "Nanum Gothic Coding", monospace;
+  color: white;
+}
+.summary {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  background-color: transparent;
+  font-family: "Nanum Gothic Coding", monospace;
+}
+.context-img {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(75%);
+  object-fit: cover;
+  z-index: 4;
+}
+.c-context-img {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(75%);
+  object-fit: cover;
+  z-index: 4;
+}
+
+.article-description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.article-description:hover + img {
+  filter: grayscale(0%);
+  filter: blur(2px);
+}
+
+.Descofart {
+  color: white;
+  font-family: "Nanum Gothic Coding", monospace;
+  letter-spacing: 3px;
+  transition: 0.3s all;
+  overflow: hidden;
+  display: block;
+}
+
+.notify {
+  background-color: #12232e;
+  width: 100%;
+  height: 5vh;
+  margin: 0;
+  border: 2px solid #12232e;
+  border-bottom: 3px solid #4da8da;
+  color: #eefbfb;
+  text-align: left;
+}
+
+.notify > a > p {
+  margin-left: 2%;
+  color: #eefbfb;
+  font-family: "Audiowide", cursive;
+}
+#NotifyText {
+  transition: 1s ease all;
+}
+.notify > a > p::before {
+  content: "";
+  display: block;
+  background: url("../media/icons/notify.png") no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+
+#ntfy-link1 {
+  color: white;
+  text-decoration: none;
+}
+
+#catalogue {
+  background-color: transparent;
+  width: 100%;
+  height: 900px;
+  position: relative;
+  border-bottom: 2px solid #12232e;
+  font-family: "Nanum Gothic Coding", monospace;
+  overflow: hidden;
+}
+#social-media-area {
+  background-color: red;
+  width: 25%;
+  height: 500px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  font-family: "Nanum Gothic Coding", monospace;
+}
+
+#content-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 30%;
+  height: 100%;
+  font-size: 0.8vw;
+  margin: auto auto;
+  float: left;
+  left: 0;
+  text-align: center;
+  background-color: #203647;
+}
+#content-title > h2 {
+  margin: 0;
+  margin-top: 2px;
+  position: relative;
+  left: 10px;
+  color: white;
+}
+
+.header {
+  width: 99.6%;
+  height: 30px;
+  background-color: #12232e;
+  border: 2px solid #12232e;
+}
+.catalogue {
+  margin: 0;
+}
+
+.content-headers {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.content-headers > ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  padding: 5px;
+}
+.content-headers ul > li {
+  list-style-type: none;
+  font-size: 2vh;
+  padding: 10px;
+}
+
+.content-headers ul > li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+#c-link-1 {
+  height: 75%;
+  background-color: rgb(226, 0, 0);
+  transition: all 0.3s;
+  border: 1px solid black;
+}
+#c-link-1:hover {
+  background-color: rgb(182, 0, 0);
+}
+
+#c-link-2 {
+  height: 75%;
+  background-color: rgb(0, 226, 38);
+  transition: all 0.3s;
+  border: 1px solid black;
+}
+#c-link-2:hover {
+  background-color: rgb(0, 165, 27);
+}
+#c-link-3 {
+  height: 75%;
+  background-color: rgb(0, 135, 168);
+  transition: all 0.3s;
+  border: 1px solid black;
+}
+#c-link-3:hover {
+  height: 75%;
+  background-color: rgb(0, 95, 119);
+}
+#c-link-4 {
+  height: 75%;
+  background-color: rgb(79, 0, 226);
+  transition: all 0.3s;
+  border: 1px solid black;
+}
+#c-link-4:hover {
+  height: 75%;
+  background-color: rgb(49, 0, 141);
+}
+
+#c-link-5 {
+  height: 75%;
+  background-color: rgb(226, 0, 158);
+  transition: all 0.3s;
+  border: 1px solid black;
+}
+#c-link-5:hover {
+  height: 75%;
+  background-color: rgb(124, 0, 87);
+}
+.grid-c-item {
+  background-color: transparent;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  border: 2px solid #12232e;
+  z-index: 1;
+}
+.grid-c-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  padding: 0;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.c-image-wrapper {
+  width: 100%;
+  height: 50%;
+  background-color: black;
+  word-wrap: break-word;
+}
+
+.c-contentarea {
+  text-align: center;
+  width: 75%;
+  height: 40%;
+}
+.c-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.c-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #203647;
+  letter-spacing: 7px;
+  height: 5vh;
+  text-transform: uppercase;
+  font-family: "Lora", serif;
+  text-align: center;
+  color: white;
+}
+.c-title a{
+  color: white;
+  text-decoration: none;
+}
+
+.c-context-img {
+  border-bottom: 2px solid #203647;
+  border-top: 2px solid #203647;
+}

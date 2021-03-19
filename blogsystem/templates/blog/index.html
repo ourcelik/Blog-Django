@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %} {% block content %} {% load static %}
+<div id="ntfy-area" class="notify">
+  <a href="#" id="ntfy-link1" class="ntfy-link">
+    <p id="NotifyText">deneme</p></a
+  >
+</div>
+<div class="grid-container">
+  {% for post in posts %}
+  <section class="Article grid-item">
+    <div class="article-description">
+      <p class="titleofart">
+      <a href="{% url 'post-detail' post.slug %}">{{post.title}}</a>
+      </p>
+      <div
+        onmouseover="BringText(event)"
+        onmouseout="HideText(event)"
+        class="summary"
+      >
+        <p class="Descofart">{{post.summary|safe|truncatechars:100}}</p>
+      </div>
+    </div>
+    <img id="img-1" class="context-img" src="{{ post.image.url }}" alt="Yazı" />
+  </section>
+  {% endfor %}
+</div>
+<div id="catalogue">
+  <div class="header">
+    <div id="content-title" class="content-title"><h2>HEADERS</h2></div>
+    <div class="content-headers">
+      <ul>
+        <li onclick = 'getCsharpPosts()' id="c-link-1"><a href="#">C SHARP</a></li>
+        <li onclick = 'getPythonPosts()' id="c-link-2"><a href="#">Python</a></li>
+        <li onclick = 'getJavascriptPosts()' id="c-link-3"><a href="#">Javascript</a></li>
+        <li onclick = 'getHtmlPosts()' id="c-link-4"><a href="#">HTML</a></li>
+        <li onclick = 'getCssPosts()' id="c-link-5"><a href="#">CSS</a></li>
+      </ul>
+    </div>
+  </div>
+    <div id="c-contents" class="grid-c-container">
+      {% for post in Csharp_Posts %}
+      <section class="grid-c-item c-content">
+        <h3 class="c-title"><a href="{% url 'post-detail' post.id %} ">{{post.title}}</a></h3>
+        <div class="c-image-wrapper">
+          <img class="c-context-img" src="{{post.image.url}}" alt="" />
+        </div>
+        <p class="c-contentarea">{{post.summary|safe}}</p>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script src=" {% static 'blog/js/postshower.js' %}  "></script>
+{% endblock content %}

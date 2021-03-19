@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blog/css/base.css' %}"
+    />
+
+    <title>ourcelik</title>
+  </head>
+  <body>
+    <div id="sidebar">
+      <div class="pp-container">
+        <img
+          id="sidebar-profile-back"
+          src="{% static 'blog/media/default.jpg' %}"
+          alt=""
+        />
+        <img
+          id="sidebar-profile"
+          src="{% static 'blog/media/default.jpg' %}"
+          alt=""
+        />
+      </div>
+      <h1>ourcelik</h1>
+      <a href="{% url 'index' %}  "> Home</a>
+      <a href="{% url 'about' %}"> About</a>
+      <a href="{% url 'cv' %}"> Portfolio</a>
+      <a href="{% url 'post-list' %}"> Posts</a>
+      <a href="{% url 'contact' %}"> Contact</a>
+    </div>
+
+    <img
+      onclick="toggle_oc()"
+      id="open-close"
+      src="{% static 'blog/media/icons/icons8_align_justify_48px.png' %}"
+      alt=""
+    />
+    <main id="main">{% block content %}{% endblock%}</main>
+    <script src="{% static 'blog/js/base.js' %}"></script>
+  </body>
+</html>

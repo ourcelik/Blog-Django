@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+<link rel="stylesheet" href="{% static 'blog/css/detail.css' %}">
+<div id="post">
+<section id="content-area">
+<article id="post-article" >
+<section id="title-container">
+ <h1 id="header-area" > <p id="header">{{post.header}}</p></h1>
+
+ <h1 id="title-area" > <p id="title">{{post.title}}</p></h1>
+</section>
+ <section id="content">
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+<li {% if message.tags %} class="{{message.tags}}  success-msg" {% endif %} >{{message}}  </li>
+{% endfor %}
+</ul>
+{% endif %}
+<p class='time-p' >{{post.date_posted|timesince}} ago published</p>
+  <p id="post-content" >{{post.content|safe}}</p>
+ </section>
+  </article>
+</section>
+</div>
+<form action="" method="POST">
+{% csrf_token %}
+{{CommentForm|crispy}}
+<input id='comment-btn' type="submit" value="Send">
+</form>
+{% for comment in post.comments.all %}
+<hr>
+<p class = 'time-p'>
+commented : {{comment.date_commented|timesince}} ago
+</p>
+<p>NAME : {{comment.name}} </p>
+<p id='comment'>
+{{comment.content}}
+</p>
+{% endfor %}
+{% endblock %}
